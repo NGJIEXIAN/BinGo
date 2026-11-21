@@ -1,51 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottomNavigation"
-        android:padding="24dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
 
+            <!-- Screen Title -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="28dp"
                 android:text="Profile"
-                android:textColor="#17312A"
-                android:textSize="32sp"
+                android:textColor="@color/green_dark"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <!-- 用户头像（已加 ID） -->
-            <ImageView
-                android:id="@+id/ivProfileAvatar"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="@drawable/bg_rounded_button"
-                android:contentDescription="User Avatar"
-                android:padding="20dp"
-                android:src="@drawable/avatar" />
+            <!-- Avatar Box -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="116dp"
+                android:layout_height="116dp"
+                android:layout_marginTop="28dp"
+                app:cardBackgroundColor="#1B3B2B"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
-            <!-- 用户名称与邮箱（已加 ID，方便后端填入真实数据） -->
+                <ImageView
+                    android:id="@+id/ivProfileAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Profile Avatar"
+                    android:padding="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/avatar" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- User Name & Email -->
             <TextView
                 android:id="@+id/tvProfileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="User"
-                android:textColor="#1B3B2B"
-                android:textSize="26sp"
+                android:textColor="@color/green_dark"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -53,32 +68,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="36dp"
                 android:text="student@siswa.um.edu.my"
-                android:textColor="#1B3B2B"
-                android:textSize="15sp" />
+                android:textColor="@color/green_dark"
+                android:textSize="13sp" />
 
-            <!-- 选项卡外框列表 -->
+            <!-- Menu Options Card -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
                 android:background="@drawable/bg_card_outline"
                 android:orientation="vertical">
 
-                <!-- 选项 1: My Reports -->
+                <!-- My Reports Row -->
                 <LinearLayout
-                    android:id="@+id/btnMyReports"
+                    android:id="@+id/rowMyReports"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="My Reports"
                         android:src="@android:drawable/ic_menu_recent_history"
-                        app:tint="#1B3B2B" />
+                        app:tint="#757575" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -91,47 +109,50 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="My Reports"
-                            android:textColor="#1B3B2B"
-                            android:textSize="18sp"
+                            android:textColor="@color/green_dark"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
                             android:text="View status and history"
-                            android:textColor="#7A8A80"
-                            android:textSize="13sp" />
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="›"
-                        android:textColor="#1B3B2B"
-                        android:textSize="24sp"
+                        android:textColor="@color/green_dark"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- 分隔线 -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#E0E0E0" />
+                    android:background="#E8ECEA" />
 
-                <!-- 选项 2: Account Settings -->
+                <!-- Account Settings Row -->
                 <LinearLayout
-                    android:id="@+id/btnAccountSettings"
+                    android:id="@+id/rowAccountSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="Account Settings"
                         android:src="@android:drawable/ic_menu_manage"
-                        app:tint="#1B3B2B" />
+                        app:tint="#757575" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -144,103 +165,179 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Account Settings"
-                            android:textColor="#1B3B2B"
-                            android:textSize="18sp"
+                            android:textColor="@color/green_dark"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
                             android:text="Profile and preferences"
-                            android:textColor="#7A8A80"
-                            android:textSize="13sp" />
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="›"
-                        android:textColor="#1B3B2B"
-                        android:textSize="24sp"
+                        android:textColor="@color/green_dark"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 退出登录按钮 -->
+            <!-- Log Out Button (Matches profileActivity.kt ID & Type) -->
             <Button
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="52dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/bg_card_outline"
+                android:background="@drawable/bg_logout_border"
                 android:text="Log Out"
                 android:textAllCaps="false"
-                android:textColor="#B03A2E"
-                android:textSize="16sp"
+                android:textColor="#B71C1C"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
-            <!-- 版本信息 -->
+            <!-- Version Footer -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="BinGo        Version 1.0"
-                android:textColor="#7A8A80"
-                android:textSize="13sp" />
+                android:text="BinGo      Version 1.0"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
         </LinearLayout>
     </ScrollView>
 
-    <!-- 底部导航栏（已加各自 ID） -->
-    <LinearLayout
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:orientation="horizontal">
+    <!-- Bottom Navigation Divider -->
+    <View
+        android:id="@+id/bottomNavDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E5E2"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
+    <!-- Bottom Navigation Bar with Icons + Labels -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
             android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="Home"
-            android:textColor="#7A8A80"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Home"
+                android:src="@drawable/ic_home"
+                app:tint="#8E9994" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Home"
+                android:textColor="#8E9994"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/navScan"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="Scan"
-            android:textColor="#7A8A80"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Scan"
+                android:src="@drawable/ic_scan"
+                app:tint="#8E9994" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Scan"
+                android:textColor="#8E9994"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/navReport"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="Report"
-            android:textColor="#7A8A80"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Report"
+                android:src="@drawable/ic_report"
+                app:tint="#8E9994" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Report"
+                android:textColor="#8E9994"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/navProfile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Profile"
-            android:textColor="#1B3B2B"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Profile"
+                android:src="@drawable/ic_profile"
+                app:tint="#1F6E43" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Profile"
+                android:textColor="#1F6E43"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

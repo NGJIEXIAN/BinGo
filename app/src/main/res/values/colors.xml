@@ -2,4 +2,28 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary Brand Greens (Splash, Login, Streak, Impact) -->
+    <color name="green_dark">#1B3B2B</color>
+    <color name="green_primary">#2E5A44</color>
+    <color name="green_sage">#B8CBBF</color>
+    <color name="green_scanner_box">#4A7C63</color>
+    <color name="green_mint_light">#E2EFE8</color>
+
+    <!-- Module Card Pastels & Accents -->
+    <color name="yellow_card">#F5E6B8</color>
+    <color name="amber_primary">#C48B28</color>
+
+    <color name="purple_card">#EBE3F5</color>
+    <color name="purple_primary">#6E5699</color>
+
+    <color name="blue_card">#DCEBF2</color>
+    <color name="blue_primary">#3B7A9E</color>
+
+    <!-- Surfaces, Inputs & Text -->
+    <color name="bg_screen">#FFFFFF</color>
+    <color name="input_cream">#F5F3EB</color>
+    <color name="border_light">#D8DDD9</color>
+    <color name="text_primary">#1B3B2B</color>
+    <color name="text_secondary">#6B7280</color>
 </resources>
