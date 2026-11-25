@@ -1,0 +1,47 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="28dp"
+    android:background="@drawable/bg_bingo_loading">
+
+    <!-- Cute BinGo decoration -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🌱✨"
+        android:textSize="38sp"
+        android:gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- BinGo title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BinGo"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#285B3A"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Random loading message -->
+    <TextView
+        android:id="@+id/tvLoadingMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BinGo is bingoing..."
+        android:textSize="14sp"
+        android:textColor="#64816B"
+        android:gravity="center"
+        android:layout_marginBottom="22dp" />
+
+    <!-- Green loading spinner -->
+    <ProgressBar
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#4A9B68" />
+
+</LinearLayout>
